@@ -31,3 +31,17 @@ sudo systemctl start flask_app
 ```sh
 sudo systemctl status flask_app
 ```
+## Untuk Menjalankan curl otomatis
+1. Buka Crontab
+``` sh
+crontab -e
+```
+2. Tambahkan Cron Job
+``` sh
+*/15 * * * * curl "http://127.0.0.1:5000/export_xlsx?codes=XXXX" >> /home/ubuntu/cron_curl.log 2>&1
+```
+Penjelasan:
+- */15 * * * *: Menjalankan perintah setiap 15 menit.
+- curl "http://127.0.0.1:5000/... : Perintah untuk menjalankan curl ke endpoint Flask.
+-  /home/ubuntu/cron_curl.log: Output akan disimpan ke file log /home/ubuntu/cron_curl.log.
+- 2>&1: Menangkap error dan menyimpannya ke log yang sama.
