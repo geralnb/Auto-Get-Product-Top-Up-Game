@@ -1,5 +1,11 @@
-Untuk check_price.py menjalankan flask secara otomatis sebagai berikut:
-1. "sudo nano /etc/systemd/system/flask_app.service" lalu isi dengan
+## check_price.py 
+menjalankan flask secara otomatis sebagai berikut:
+1. buat 
+```sh
+sudo nano /etc/systemd/system/flask_app.service
+```
+lalu isi dengan
+```sh
 [Unit]
 Description=Flask Application
 After=network.target
@@ -12,6 +18,16 @@ Restart=always
 
 [Install]
 WantedBy=multi-user.target
-2. Reload systemd "sudo systemctl daemon-reload"
-3. Start Flask Service "sudo systemctl start flask_app"
-4. Periksa Status "sudo systemctl status flask_app"
+```
+2. Reload systemd 
+```sh
+sudo systemctl daemon-reload
+```
+3. Start Flask Service 
+```sh
+sudo systemctl start flask_app
+```
+4. Periksa Status
+```sh
+sudo systemctl status flask_app
+```
